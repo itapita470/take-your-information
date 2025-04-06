@@ -2,49 +2,84 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>התחברות</title>
+  <title>טופס התחברות</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       direction: rtl;
       text-align: center;
-      margin-top: 100px;
-      background-color: #f4f4f4;
+      background-color: #f8f8f8;
+      padding: 50px;
     }
-    h2 {
-      color: #333;
-    }
-    input, button {
-      padding: 10px;
-      margin: 10px;
-      width: 250px;
-      border-radius: 8px;
+    .terms-box {
+      max-height: 150px;
+      overflow-y: scroll;
+      text-align: right;
+      background: #eee;
+      padding: 20px;
       border: 1px solid #ccc;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+    }
+    a {
+      color: blue;
+      cursor: pointer;
+    }
+    #extra {
+      display: none;
+      text-align: right;
+      margin-top: 20px;
+    }
+    input[type="checkbox"] {
+      margin-left: 10px;
     }
     button {
       background-color: red;
       color: white;
       border: none;
+      padding: 10px 20px;
       cursor: pointer;
+      border-radius: 8px;
     }
     button:hover {
       background-color: darkred;
-    }
-    input:focus, button:focus {
-      outline: none;
-      border-color: #ff0000;
     }
   </style>
 </head>
 <body>
   <h2>התחברות</h2>
-  <form action="https://formspree.io/f/xgvapoov" method="POST">
-    <input type="email" name="email" placeholder="אימייל" required><br>
-    <input type="password" name="password" placeholder="סיסמה" required><br>
 
-    <!-- הפניה לאחר שליחה -->
-    <input type="hidden" name="_redirect" value="https://itapita470.github.io/itapitascompare.com">
+  <form method="POST" action="#">
+    <input type="email" name="email" placeholder="אימייל" required><br>
+    <input type="password" name="password" placeholder="סיסמה" required><br><br>
+    
+    <div class="terms-box">
+      <p>
+        ברוכים הבאים לאתר שלנו. כל שימוש באתר כפוף לתנאים מסוימים, שאינם ניתנים לשינוי. המשתמש מבין כי כל פעולה באתר תתועד,
+        וכל שימוש לרעה עלול לגרור השלכות חוקיות, טכניות, או מטא-פיזיות. המשתמש מאשר בזאת כי קרא, הבין, ולא באמת קרא את כל התנאים שלמטה,
+        ולכן אנו לא נושאים באחריות על שום דבר, אלא אם צוין אחרת במסמך נוסף.
+        <br><br>
+        בנוסף, המשתמש מוותר מראש על כל טענה, תביעה, או רצון כלשהו להתלונן, לבכות, או לחזור אחורה בזמן. כל זאת בכפוף לאזהרה כללית שבקושי אפשר לקרוא.
+        <br><br>
+        ובכן, אם הגעת עד לפה – מגיע לך מדליה, אבל רוב הסיכויים שדילגת.
+        <br><br>
+        <a onclick="document.getElementById('extra').style.display='block'">תראה עוד</a>
+      </p>
+    </div>
+
+    <div id="extra">
+      <p>
+        😎 עכשיו כשהרחבת – הנה מה שבאמת חשוב: כל המידע שתכניס כאן יכול להישמר ולשמש לצרכים פנימיים בלבד.  
+        אין התחזות, אין גניבה, הכול לצורכי למידה ובניית פרויקט אישי בלבד.  
+        עליך להשתמש באתר רק אם אתה מסכים לתנאים האלה. תודה!
+      </p>
+    </div>
+
+    <!-- ריבוע "אני מאשר" -->
+    <label>
+      <input type="checkbox" name="terms" required> אני מאשר את התנאים שלמעלה
+    </label><br><br>
 
     <button type="submit">התחבר</button>
   </form>
